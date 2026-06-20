@@ -13,12 +13,12 @@ const events = [
 ]
 
 const catColors = {
-  Stadtfest: 'bg-blue-100 text-blue-700',
-  Sport: 'bg-green-100 text-green-700',
-  Kultur: 'bg-purple-100 text-purple-700',
-  Film: 'bg-amber-100 text-amber-700',
-  Musik: 'bg-indigo-100 text-indigo-700',
-  Geschichte: 'bg-red-100 text-red-700',
+  Stadtfest: 'bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300',
+  Sport: 'bg-green-100 text-green-700 dark:bg-green-900/40 dark:text-green-300',
+  Kultur: 'bg-purple-100 text-purple-700 dark:bg-purple-900/40 dark:text-purple-300',
+  Film: 'bg-amber-100 text-amber-700 dark:bg-amber-900/40 dark:text-amber-300',
+  Musik: 'bg-indigo-100 text-indigo-700 dark:bg-indigo-900/40 dark:text-indigo-300',
+  Geschichte: 'bg-red-100 text-red-700 dark:bg-red-900/40 dark:text-red-300',
 }
 
 const ALL = 'Alle'
@@ -38,8 +38,8 @@ export default function Events() {
   return (
     <div className="max-w-7xl mx-auto px-4 py-10">
       <div className="mb-6">
-        <h1 className="text-3xl font-bold text-gray-900 mb-2">Veranstaltungen in Aachen</h1>
-        <p className="text-gray-500">Aktuelle & kommende Highlights in der Kaiserstadt</p>
+        <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">Veranstaltungen in Aachen</h1>
+        <p className="text-gray-500 dark:text-gray-400">Aktuelle & kommende Highlights in der Kaiserstadt</p>
       </div>
 
       {/* Search bar */}
@@ -49,10 +49,10 @@ export default function Events() {
           value={query}
           onChange={e => setQuery(e.target.value)}
           placeholder="Veranstaltungen durchsuchen …"
-          className="w-full pl-11 pr-10 py-3 rounded-xl border border-gray-200 bg-white text-sm text-gray-800 placeholder-gray-400 outline-none focus:border-[#003D73] focus:ring-2 focus:ring-[#003D73]/10 transition-all"
+          className="w-full pl-11 pr-10 py-3 rounded-xl border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800 text-sm text-gray-800 dark:text-gray-100 placeholder-gray-400 outline-none focus:border-[#003D73] focus:ring-2 focus:ring-[#003D73]/10 transition-all"
         />
         {query && (
-          <button onClick={() => setQuery('')} className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600">
+          <button onClick={() => setQuery('')} className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200">
             <X size={16} />
           </button>
         )}
@@ -67,12 +67,12 @@ export default function Events() {
             className={`px-4 py-2 rounded-full text-sm font-semibold transition-all border ${
               active === cat
                 ? 'bg-[#003D73] text-white border-[#003D73] shadow-sm'
-                : 'bg-white text-gray-600 border-gray-200 hover:border-[#003D73] hover:text-[#003D73]'
+                : 'bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 border-gray-200 dark:border-gray-600 hover:border-[#003D73] hover:text-[#003D73]'
             }`}
           >
             {cat}
             {cat !== ALL && (
-              <span className={`ml-1.5 text-xs px-1.5 py-0.5 rounded-full ${active === cat ? 'bg-white/20 text-white' : 'bg-gray-100 text-gray-500'}`}>
+              <span className={`ml-1.5 text-xs px-1.5 py-0.5 rounded-full ${active === cat ? 'bg-white/20 text-white' : 'bg-gray-100 dark:bg-gray-700 text-gray-500 dark:text-gray-400'}`}>
                 {events.filter(e => e.cat === cat).length}
               </span>
             )}
@@ -80,18 +80,18 @@ export default function Events() {
         ))}
       </div>
 
-      <p className="text-sm text-gray-400 mb-4">
+      <p className="text-sm text-gray-400 dark:text-gray-500 mb-4">
         {filtered.length} Ergebnis{filtered.length !== 1 ? 'se' : ''}
         {active !== ALL ? ` in „${active}"` : ''}
         {query ? ` für „${query}"` : ''}
       </p>
 
       {filtered.length === 0 ? (
-        <div className="text-center py-20 text-gray-400">Keine Veranstaltungen gefunden.</div>
+        <div className="text-center py-20 text-gray-400 dark:text-gray-500">Keine Veranstaltungen gefunden.</div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           {filtered.map(e => (
-            <div key={e.title} className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden hover:shadow-md transition-shadow flex">
+            <div key={e.title} className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm overflow-hidden hover:shadow-md transition-shadow flex">
               <div className={`${e.color} text-white flex flex-col items-center justify-center px-4 shrink-0 min-w-[72px]`}>
                 <span className="text-2xl font-bold leading-none">{e.date.split('.')[0]}.</span>
                 <span className="text-xs opacity-80 mt-1">{e.month}</span>
@@ -100,9 +100,9 @@ export default function Events() {
                 <div className="mb-2">
                   <span className={`text-xs font-semibold px-2 py-0.5 rounded-full ${catColors[e.cat] || 'bg-gray-100 text-gray-600'}`}>{e.cat}</span>
                 </div>
-                <h3 className="font-bold text-gray-900 text-sm mb-1">{e.title}</h3>
-                <p className="text-gray-500 text-xs mb-3 line-clamp-2">{e.desc}</p>
-                <div className="flex items-center gap-3 text-xs text-gray-400">
+                <h3 className="font-bold text-gray-900 dark:text-white text-sm mb-1">{e.title}</h3>
+                <p className="text-gray-500 dark:text-gray-400 text-xs mb-3 line-clamp-2">{e.desc}</p>
+                <div className="flex items-center gap-3 text-xs text-gray-400 dark:text-gray-500">
                   <span className="flex items-center gap-1"><MapPin size={11} />{e.location}</span>
                   <span className="flex items-center gap-1"><Clock size={11} />{e.time}</span>
                 </div>
