@@ -4,6 +4,7 @@ import Home from './pages/Home'
 import Services from './pages/Services'
 import Events from './pages/Events'
 import News from './pages/News'
+import Datenschutz from './pages/Datenschutz'
 
 export default function App() {
   return (
@@ -13,6 +14,7 @@ export default function App() {
         <Route path="/services" element={<Services />} />
         <Route path="/events" element={<Events />} />
         <Route path="/news" element={<News />} />
+        <Route path="/datenschutz" element={<Datenschutz />} />
       </Routes>
     </Layout>
   )
