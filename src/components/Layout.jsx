@@ -85,9 +85,12 @@ export default function Layout({ children }) {
         )}
       </header>
       <main className="flex-1">{children}</main>
-      <footer className="bg-[#003D73] text-blue-200 text-center text-sm py-6 mt-12">
+      <footer className="bg-[#003D73] text-blue-200 text-center text-sm py-6 mt-12 dark:bg-gray-950">
         <p className="font-semibold text-white mb-1">{tr.footer.title}</p>
         <p>{tr.footer.address}</p>
+        <Link to="/datenschutz" className="mt-3 inline-block text-[#C8A951] hover:text-yellow-400 transition-colors text-xs font-semibold">
+          Datenschutzerklärung (DSGVO)
+        </Link>
         <p className="mt-2 text-xs text-blue-300">{tr.footer.copyright}</p>
       </footer>
     </div>
