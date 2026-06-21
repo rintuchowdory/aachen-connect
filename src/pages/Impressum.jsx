@@ -14,7 +14,7 @@ export default function Impressum() {
         </section>
         <section className="mb-8">
           <h2 className="text-2xl font-semibold mb-4 text-[#003D73]">Verantwortlich für Inhalte</h2>
-          <p className="text-gray-600 dark:text-gray-300 mb-3">Gemäß § 55 Abs. 2 RStV:</p>
+          <p className="text-gray-600 dark:text-gray-300 mb-3">GemÃ¤ÃŸ Â§ 55 Abs. 2 RStV:</p>
           <p className="text-gray-600 dark:text-gray-300"><strong>Aachen Connect</strong><br />Stadt Aachen<br />Aachen, NRW, Deutschland<br />kontakt@aachen-connect.de</p>
         </section>
         <section className="mb-8">
@@ -144,22 +144,3 @@ export default function Impressum() {
   
   
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  �
