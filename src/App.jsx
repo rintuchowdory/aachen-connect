@@ -5,6 +5,7 @@ import Services from './pages/Services'
 import Events from './pages/Events'
 import News from './pages/News'
 import Datenschutz from './pages/Datenschutz'
+import Impressum from './pages/Impressum'
 
 export default function App() {
   return (
@@ -15,6 +16,7 @@ export default function App() {
         <Route path="/events" element={<Events />} />
         <Route path="/news" element={<News />} />
         <Route path="/datenschutz" element={<Datenschutz />} />
+        <Route path="/impressum" element={<Impressum />} />
       </Routes>
     </Layout>
   )
